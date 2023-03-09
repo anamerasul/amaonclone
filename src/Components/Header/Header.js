@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css'
-import logo from './../../images/Logo.svg'
+import logo from './../../images/AMAZON.svg'
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <div className="bg-header-color">
             <nav className="sm:h-20 flex justify-between items-center pr-[-20px]  sm:px-0  md:px-36 sm:container-fluid">
-                <img src={logo} alt="" />
+                <img src={logo} alt="AMAZON BUY" />
 
                 <div className="text-slate-50 mx-5">
                     <Link to="/shop">Shop</Link>

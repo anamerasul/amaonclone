@@ -3,7 +3,7 @@ import { addToDb, getStoredCart } from "../../Utilities/FakeDb";
 import Cart from "../Cart/Cart";
 import UseProducts from "../Hooks/UseProduct";
 import Product from "../Product/Product";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import "./Shop.css";
 import UseCart from "../Hooks/UseCart";
 const Shop = () => {
@@ -17,7 +17,7 @@ const Shop = () => {
   const [size, setSize] = useState(10);
 
   const [products, setProducts] = useState([]);
-
+const navigate= useNavigate()
   // console.log(url)
 
   useEffect(() => {
@@ -80,6 +80,7 @@ const Shop = () => {
 
     setCart(newCart);
     addToDb(sproduct._id);
+    navigate('/order')
   };
 
   // useEffect(() => {
@@ -101,7 +102,7 @@ const Shop = () => {
   // }, [products])
 
   return (
-    <div className="  grid lg:grid-cols-[4fr,1fr] sm:grid-cols-[3fr,1fr] grid-cols-[1fr,1fr]">
+    <div className="  grid lg:grid-cols-[5fr,1fr] sm:grid-cols-[4fr,1fr] grid-cols-[1fr,1fr] mx-[150px]">
       {/* <h2>This is shop</h2> */}
 
       <div
@@ -119,13 +120,15 @@ const Shop = () => {
         ))}
       </div>
 
-      <div className="cart-container sticky top-0 h-[900px] ml-auto bg-orange-300 w-full ">
+      <div></div>
+
+      {/* <div className="cart-container sticky top-0 h-[900px] ml-auto bg-orange-300 w-full ">
         <Cart cart={cart}>
           <Link className="bg-slate-300" to="/order">
             <button>Rewiew order</button>
           </Link>
         </Cart>
-      </div>
+      </div> */}
 
       <div className="mr-15 ml-20 my-10 pagination">
         {[...Array(pageCount).keys()].map((number) => (

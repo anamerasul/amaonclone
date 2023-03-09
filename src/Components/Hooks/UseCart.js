@@ -26,7 +26,7 @@ const UseCart = () => {
             body: JSON.stringify(keys)
         })
 
-            .then(res => res.json())
+            .then(res => res?.json())
             .then(products => {
 
                 console.log(products)
